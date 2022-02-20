@@ -127,15 +127,16 @@ public class UserFilter extends HttpFilter implements Filter {
 		// on r´ecup`ere la m´ethode HTTP utilis´ee (GET ou POST)
 		String methode = req.getMethod();
 		
-		if(connectedUser.getNom() == null && (chemin.equals("/index.html") 
-				|| chemin.equals("/connexion.jsp")
+		if(connectedUser.getNom() == null && (
+				chemin.equals("/index.jsp")
+				|| chemin.equals("/AfficherListe")
 				|| chemin.equals("/inscription.jsp") 
 				|| chemin.equals("/ConnexionUtilisateur") && methode.equals("POST")
 				|| chemin.equals("/InscriptionUtilisateur") && methode.equals("POST"))) {
 			
 			chain.doFilter(request, response);
 			
-		} else if (connectedUser.getNom() != null && (!chemin.equals("/connexion.jsp") 
+		} else if (connectedUser.getNom() != null && (!chemin.equals("/index.jsp") 
 				&& !chemin.equals("/ConnexionUtilisateur") 
 				&& !chemin.equals("/inscription.jsp") 
 				&& !chemin.equals("/InscriptionUtilisateur"))) {
@@ -144,7 +145,7 @@ public class UserFilter extends HttpFilter implements Filter {
 			
 		} else {
 			
-			res.sendRedirect(req.getContextPath());
+			res.sendRedirect(req.getContextPath() + "/AfficherListe");
 			
 		}
 		

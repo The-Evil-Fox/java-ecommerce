@@ -5,46 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet"  type="text/css" href="${pageContext.request.contextPath}/CSS/style.css">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-	<meta charset="UTF-8">
+	<%@include file="../templates/header.jsp" %>
 	<title>Mon panier</title>
 </head>
 <body>
-	<div class="topnav" id="myTopnav">
-	   <a id="home-link" href="AfficherListe"><img id="logo-magasin" alt="logo-magasin" src="https://upload.wikimedia.org/wikipedia/fr/7/7a/Alien_Swarm_Logo.png"></a>
-	   <div class="dropdown">
-	     <button class="dropbtn">Compte
-	     </button>
-	     <div class="dropdown-content">
-	       <a href="AfficherProfil">Mon profil</a>
-	     </div>
-	   </div>
-	   <c:if test="${user.getPrivileges() == 1 }">
-		   <div class="dropdown">
-		     <button class="dropbtn">Administration
-		     </button>
-		     <div class="dropdown-content">
-		       <a href="AjouterProduit">Ajout produit</a>
-		     </div>
-		   </div>
-	   </c:if>
-	   <a href="DeconnectUser">Déconnexion</a>
-	    <a href="AffichePanier" id="panier-navbar">
-	    	<img id="panier-logo" alt="panier-logo" title="afficher mon panier" src="https://www.innis-coiffure.com/images/pannier-grand.png">
-		   	<c:choose>
-				<c:when test="${listepanier.getQuantiteTotale() == 0 }"></c:when>
-				<c:when test="${listepanier.getQuantiteTotale() == 1 }">
-					<c:out value="(${listepanier.getQuantiteTotale() } article)" />
-				</c:when>
-				<c:when test="${listepanier.getQuantiteTotale() > 1 }">
-					<c:out value="(${listepanier.getQuantiteTotale() } articles)" />
-				</c:when>
-			</c:choose>
-		</a>
-	   <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-	</div>
+	<%@include file="../templates/navbarAuthentified.jsp" %>
 	<c:choose>
 		<c:when test="${listepanier.getQuantiteTotale() == 0 }">
 			<div id="error-message-container">
@@ -91,16 +56,6 @@
 			</div>
 		</c:otherwise>
 	</c:choose>
-	<script type="text/javascript">
-		// Responsive navbar function
-		function myFunction() {
-			  var x = document.getElementById("myTopnav");
-			  if (x.className === "topnav") {
-			    x.className += " responsive";
-			  } else {
-			    x.className = "topnav";
-			  }
-			}
-	</script>
+	<%@include file="../templates/scripts.jsp" %>
 </body>
 </html>
