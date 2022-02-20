@@ -85,8 +85,6 @@ public class ConnexionUtilisateur extends HttpServlet {
 			
 		}
 		
-		System.out.println(found);
-		
 		if(found == true) {
 			
 			HttpSession session = request.getSession();
