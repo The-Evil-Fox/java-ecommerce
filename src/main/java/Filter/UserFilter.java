@@ -130,6 +130,7 @@ public class UserFilter extends HttpFilter implements Filter {
 		if(connectedUser.getNom() == null && (
 				chemin.equals("/index.jsp")
 				|| chemin.equals("/AfficherListe")
+				|| chemin.equals("/CSS/style.css")
 				|| chemin.equals("/inscription.jsp") 
 				|| chemin.equals("/ConnexionUtilisateur") && methode.equals("POST")
 				|| chemin.equals("/InscriptionUtilisateur") && methode.equals("POST"))) {
@@ -145,7 +146,7 @@ public class UserFilter extends HttpFilter implements Filter {
 			
 		} else {
 			
-			res.sendRedirect(req.getContextPath() + "/AfficherListe");
+			res.sendRedirect(req.getContextPath() + "/index.jsp");
 			
 		}
 		

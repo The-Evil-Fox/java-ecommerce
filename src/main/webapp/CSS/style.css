@@ -22,6 +22,12 @@ body {
 a {
 	width: auto;
 	margin: auto;
+	color: #f2f2f2;
+}
+
+.form-link {
+	margin: 3vh 0;
+	display: block;
 }
 
 .button-a {
@@ -263,20 +269,20 @@ a {
 	margin: 15px auto;
 }
 
-#container-profil, #container-ajout-produit {
+#container-profil, #container-ajout-produit, #connexion-container, #inscription-container {
 	margin: 10vh 10vw 10vh 10vw;
     background-color: #333;
     padding: 5vh 5vw;
     border-radius: 25px;
 }
 
-#ajoutproduit .input-group {
+#ajoutproduit .input-group, #connexion-container .input-group, #inscription-container .input-group {
 	display: flex;
 	flex-direction: column;
 	margin: 3vh 0;
 }
 
-#ajoutproduit .input-group input {
+#ajoutproduit .input-group input, #connexion-container .input-group input, #inscription-container .input-group input {
 	width: 50%;
 	margin: 3vh 0;
 }
@@ -286,7 +292,8 @@ a {
 }
 
 .validationformulaire {
-	width: 30%;
+	width: auto;
+    margin: 3vh 0;
 }
 
 @media screen and (max-width: 700px) {
@@ -350,11 +357,11 @@ a {
     position: static;
     margin-right: auto;
   }
-  #container-ajout-produit {
+  #container-ajout-produit, #connexion-container, #inscription-container {
   	text-align: center;
   }
-  #ajoutproduit .input-group input {
+  #ajoutproduit .input-group input, #connexion-container .input-group input, #inscription-container .input-group input {
 	width: 75%;
 	margin: 3vh auto;
-}
+  }
 }
