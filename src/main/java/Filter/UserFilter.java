@@ -62,7 +62,6 @@ public class UserFilter extends HttpFilter implements Filter {
 		
 		String useremail = "";
 		
-		
 		if(session.getAttribute("user") == null) {
 			
 			Cookie cookies [] = ((HttpServletRequest) request).getCookies();
@@ -122,8 +121,6 @@ public class UserFilter extends HttpFilter implements Filter {
 		
 		// on r´ecup`ere le chemin demand´e par l’utilisateur
 		String chemin = req.getServletPath();
-		String chemin2 = req.getRequestURI();
-		String completeURL = req.getRequestURL().toString();
 		// on r´ecup`ere la m´ethode HTTP utilis´ee (GET ou POST)
 		String methode = req.getMethod();
 		
@@ -146,7 +143,7 @@ public class UserFilter extends HttpFilter implements Filter {
 			
 		} else {
 			
-			res.sendRedirect(req.getContextPath() + "/index.jsp");
+			res.sendRedirect(req.getContextPath() + "/AfficherListe");
 			
 		}
 		

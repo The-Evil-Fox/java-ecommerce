@@ -52,7 +52,7 @@ public class DeconnectUser extends HttpServlet {
 		}
 		
 		session.invalidate();
-	    response.sendRedirect("index.html");
+	    response.sendRedirect("AfficherListe");
 		
 	}
 

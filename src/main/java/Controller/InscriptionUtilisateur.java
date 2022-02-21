@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -86,6 +87,10 @@ public class InscriptionUtilisateur extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		session.setAttribute("user", connectedUser);
+		Cookie user = new Cookie("useremail", connectedUser.getEmail());
+		user.setHttpOnly(true);
+		user.setMaxAge(31536000);
+		response.addCookie(user);
 		this.getServletContext().getRequestDispatcher("/AfficherListe").
 		forward(request, response);
 		
